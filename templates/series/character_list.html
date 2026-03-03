@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Characters - Cartoon Manager{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2>All Characters</h2>
+    <div class="grid">
+        {% for character in characters %}
+        <div class="card">
+            <h3><a href="{% url 'series:character_detail' character.pk %}">{{ character.name }}</a></h3>
+            <p>{{ character.description|truncatewords:30|default:"No description" }}</p>
+            <p><strong>Wardrobe Items:</strong> {{ character.wardrobe_items.count }}</p>
+            <p><strong>Shots:</strong> {{ character.shots.count }}</p>
+            <p>
+                {% for series in character.series.all %}
+                <span class="character-tag" style="background-color: #2980b9;">{{ series.title }}</span>
+                {% endfor %}
+            </p>
+        </div>
+        {% empty %}
+        <p>No characters available. <a href="/admin/series/character/add/">Add a character</a>.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

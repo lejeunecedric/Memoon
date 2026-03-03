@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ character.name }} - Cartoon Manager{% endblock %}
+
+{% block content %}
+<div class="breadcrumb">
+    <a href="{% url 'series:series_list' %}">Series</a> &raquo; 
+    <a href="{% url 'series:character_list' %}">Characters</a> &raquo; 
+    {{ character.name }}
+</div>
+
+<div class="card">
+    <h2>{{ character.name }}</h2>
+    <p>{{ character.description|linebreaks|default:"No description available" }}</p>
+    
+    <h3>Appears in Series:</h3>
+    <p>
+        {% for series in character.series.all %}
+        <span class="character-tag" style="background-color: #2980b9;">
+            <a href="{% url 'series:series_detail' series.pk %}" style="color: white; text-decoration: none;">{{ series.title }}</a>
+        </span>
+        {% empty %}
+        Not assigned to any series.
+        {% endfor %}
+    </p>
+</div>
+
+<div class="card">
+    <h3>Wardrobe Items</h3>
+    {% for item in wardrobe_items %}
+    <div style="margin: 10px 0; padding: 10px; background-color: #ecf0f1; border-radius: 4px;">
+        <strong>{{ item.name }}</strong>
+        {% if item.description %}
+        <br><small>{{ item.description }}</small>
+        {% endif %}
+    </div>
+    {% empty %}
+    <p>No wardrobe items defined.</p>
+    {% endfor %}
+</div>
+
+<div class="card">
+    <h3>Recent Shots (up to 20)</h3>
+    {% if shots %}
+    <table>
+        <thead>
+            <tr>
+                <th>Shot</th>
+                <th>Series</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for shot in shots %}
+            <tr>
+                <td>Shot {{ shot.number }} in {{ shot.sequence }}</td>
+                <td>{{ shot.sequence.episode.season.series.title }}</td>
+                <td><a href="{% url 'series:shot_detail' shot.pk %}" class="btn">View</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No shots assigned to this character.</p>
+    {% endif %}
+</div>
+{% endblock %}

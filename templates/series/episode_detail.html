@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ episode }} - Cartoon Manager{% endblock %}
+
+{% block content %}
+<div class="breadcrumb">
+    <a href="{% url 'series:series_list' %}">Series</a> &raquo; 
+    <a href="{% url 'series:series_detail' episode.season.series.pk %}">{{ episode.season.series.title }}</a> &raquo; 
+    <a href="{% url 'series:season_detail' episode.season.pk %}">Season {{ episode.season.number }}</a> &raquo; 
+    Episode {{ episode.number }}
+</div>
+
+<div class="card">
+    <h2>{{ episode }}</h2>
+    <p>{{ episode.description|default:"No description available" }}</p>
+    {% if episode.duration %}
+    <p><strong>Duration:</strong> {{ episode.duration }}</p>
+    {% endif %}
+</div>
+
+<div class="card">
+    <h2>Sequences</h2>
+    {% for sequence in sequences %}
+    <div class="card">
+        <h3><a href="{% url 'series:sequence_detail' sequence.pk %}">Sequence {{ sequence.number }}{% if sequence.title %}: {{ sequence.title }}{% endif %}</a></h3>
+        <p>{{ sequence.description|truncatewords:20|default:"No description" }}</p>
+        <p><strong>Shots:</strong> {{ sequence.shots.count }}</p>
+    </div>
+    {% empty %}
+    <p>No sequences available.</p>
+    {% endfor %}
+</div>
+{% endblock %}

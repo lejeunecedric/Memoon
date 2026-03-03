@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block title %}Import CSV - Cartoon Manager{% endblock %}
+
+{% block content %}
+<div class="breadcrumb">
+    <a href="{% url 'series:series_list' %}">Series</a> &raquo; Import CSV
+</div>
+
+<div class="card">
+    <h2>Import Shots from CSV</h2>
+    
+    <div style="background-color: #e8f4f8; padding: 15px; border-radius: 4px; margin-bottom: 20px;">
+        <h3>CSV Format</h3>
+        <p>Your CSV file should have the following columns:</p>
+        <ul style="margin-left: 20px;">
+            <li><strong>sequence_number</strong> - The sequence number (required)</li>
+            <li><strong>sequence_title</strong> - Optional title for the sequence</li>
+            <li><strong>shot_number</strong> - The shot number within the sequence (required)</li>
+            <li><strong>script</strong> - Script/dialogue for the shot</li>
+            <li><strong>characters</strong> - Comma-separated list of character names</li>
+            <li><strong>wardrobe</strong> - Comma-separated list of wardrobe items (matching characters by position)</li>
+            <li><strong>background</strong> - Background description</li>
+            <li><strong>camera_angle</strong> - Camera angle description</li>
+            <li><strong>camera_movement</strong> - Camera movement description</li>
+        </ul>
+        
+        <h4>Example CSV:</h4>
+        <pre style="background-color: #f5f5f5; padding: 10px; border-radius: 4px; overflow-x: auto;">
+sequence_number,sequence_title,shot_number,script,characters,wardrobe,background,camera_angle,camera_movement
+1,Opening,1,"Character A: Hello!","Character A","Casual Outfit","Living Room","Wide shot","Static"
+1,Opening,2,"Character B: Hi there!","Character A,Character B","Casual Outfit,Work Clothes","Living Room","Medium shot","Pan right"
+2,Action,1,"Both characters run","Character A,Character B","Running Shoes,Athletic Wear","Street","Tracking shot","Follow movement"
+        </pre>
+    </div>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <div style="margin-bottom: 15px;">
+            <label for="{{ form.csv_file.id_for_label }}" style="display: block; font-weight: bold; margin-bottom: 5px;">
+                {{ form.csv_file.label }}
+            </label>
+            {{ form.csv_file }}
+            {% if form.csv_file.help_text %}
+            <small style="color: #666;">{{ form.csv_file.help_text }}</small>
+            {% endif %}
+            {% if form.csv_file.errors %}
+            <div style="color: #e74c3c;">{{ form.csv_file.errors }}</div>
+            {% endif %}
+        </div>
+
+        <div style="margin-bottom: 15px;">
+            <label for="{{ form.series.id_for_label }}" style="display: block; font-weight: bold; margin-bottom: 5px;">
+                {{ form.series.label }}
+            </label>
+            {{ form.series }}
+            {% if form.series.errors %}
+            <div style="color: #e74c3c;">{{ form.series.errors }}</div>
+            {% endif %}
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 15px;">
+            <div>
+                <label for="{{ form.season_number.id_for_label }}" style="display: block; font-weight: bold; margin-bottom: 5px;">
+                    {{ form.season_number.label }}
+                </label>
+                {{ form.season_number }}
+                {% if form.season_number.errors %}
+                <div style="color: #e74c3c;">{{ form.season_number.errors }}</div>
+                {% endif %}
+            </div>
+
+            <div>
+                <label for="{{ form.episode_number.id_for_label }}" style="display: block; font-weight: bold; margin-bottom: 5px;">
+                    {{ form.episode_number.label }}
+                </label>
+                {{ form.episode_number }}
+                {% if form.episode_number.errors %}
+                <div style="color: #e74c3c;">{{ form.episode_number.errors }}</div>
+                {% endif %}
+            </div>
+        </div>
+
+        <button type="submit" class="btn" style="background-color: #27ae60; border: none; cursor: pointer; font-size: 16px;">
+            Import CSV
+        </button>
+    </form>
+</div>
+{% endblock %}

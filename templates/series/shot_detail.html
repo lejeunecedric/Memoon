@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ shot }} - Cartoon Manager{% endblock %}
+
+{% block content %}
+<div class="breadcrumb">
+    <a href="{% url 'series:series_list' %}">Series</a> &raquo; 
+    <a href="{% url 'series:series_detail' shot.sequence.episode.season.series.pk %}">{{ shot.sequence.episode.season.series.title }}</a> &raquo; 
+    <a href="{% url 'series:season_detail' shot.sequence.episode.season.pk %}">Season {{ shot.sequence.episode.season.number }}</a> &raquo; 
+    <a href="{% url 'series:episode_detail' shot.sequence.episode.pk %}">Episode {{ shot.sequence.episode.number }}</a> &raquo; 
+    <a href="{% url 'series:sequence_detail' shot.sequence.pk %}">Sequence {{ shot.sequence.number }}</a> &raquo; 
+    Shot {{ shot.number }}
+</div>
+
+<div class="card">
+    <h2>{{ shot }}</h2>
+    
+    <div class="shot-info">
+        <h3>Characters & Wardrobe</h3>
+        {% for sc in shot_characters %}
+        <div style="margin: 10px 0; padding: 10px; background: white; border-radius: 4px;">
+            <span class="field-label">Character:</span>
+            <span class="field-value"><a href="{% url 'series:character_detail' sc.character.pk %}">{{ sc.character.name }}</a></span>
+            <br>
+            {% if sc.wardrobe %}
+            <span class="field-label">Wardrobe:</span>
+            <span class="field-value">{{ sc.wardrobe.name }}</span>
+            {% if sc.wardrobe.description %}
+            <br><small>{{ sc.wardrobe.description }}</small>
+            {% endif %}
+            {% else %}
+            <span class="field-label">Wardrobe:</span>
+            <span class="field-value">Default</span>
+            {% endif %}
+            {% if sc.notes %}
+            <br><span class="field-label">Notes:</span> {{ sc.notes }}
+            {% endif %}
+        </div>
+        {% empty %}
+        <p>No characters assigned to this shot.</p>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="card">
+    <h3>Script</h3>
+    <div style="background-color: #f9f9f9; padding: 15px; border-left: 4px solid #2980b9;">
+        {{ shot.script|linebreaks|default:"No script provided" }}
+    </div>
+</div>
+
+<div class="card">
+    <h3>Visual Elements</h3>
+    
+    <div style="margin: 15px 0;">
+        <span class="field-label">Background:</span>
+        <div style="background-color: #f9f9f9; padding: 10px; margin-top: 5px; border-radius: 4px;">
+            {{ shot.background|default:"No background specified" }}
+        </div>
+    </div>
+    
+    <div style="margin: 15px 0;">
+        <span class="field-label">Camera Angle:</span>
+        <div style="background-color: #f9f9f9; padding: 10px; margin-top: 5px; border-radius: 4px;">
+            {{ shot.camera_angle|default:"No camera angle specified" }}
+        </div>
+    </div>
+    
+    <div style="margin: 15px 0;">
+        <span class="field-label">Camera Movement:</span>
+        <div style="background-color: #f9f9f9; padding: 10px; margin-top: 5px; border-radius: 4px;">
+            {{ shot.camera_movement|default:"No camera movement specified" }}
+        </div>
+    </div>
+    
+    {% if shot.duration %}
+    <div style="margin: 15px 0;">
+        <span class="field-label">Duration:</span>
+        <span class="field-value">{{ shot.duration }}</span>
+    </div>
+    {% endif %}
+    
+    {% if shot.notes %}
+    <div style="margin: 15px 0;">
+        <span class="field-label">Notes:</span>
+        <div style="background-color: #fff3cd; padding: 10px; margin-top: 5px; border-radius: 4px;">
+            {{ shot.notes|linebreaks }}
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+<a href="{% url 'series:sequence_detail' shot.sequence.pk %}" class="btn">Back to Sequence</a>
+<a href="/admin/series/shot/{{ shot.pk }}/change/" class="btn" style="background-color: #27ae60;">Edit in Admin</a>
+{% endblock %}

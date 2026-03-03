@@ -1,0 +1,10 @@
+sequence_number,sequence_title,shot_number,script,characters,wardrobe,background,camera_angle,camera_movement
+1,Opening Scene,1,"Hero: Today is the day!","Hero","Super Suit","City Rooftop","Wide establishing shot","Static"
+1,Opening Scene,2,"Villain: Not so fast!","Villain","Dark Cloak","City Rooftop","Medium shot","Zoom in"
+1,Opening Scene,3,"Hero: We meet again...","Hero,Villain","Super Suit,Dark Cloak","City Rooftop","Two-shot","Pan slowly"
+2,The Chase,1,"Hero runs across rooftops","Hero","Super Suit","City Skyline","Tracking shot","Follow running"
+2,The Chase,2,"Villain follows closely","Villain","Dark Cloak","City Skyline","Tracking shot","Follow running"
+2,The Chase,3,"Sidekick: Need help?","Hero,Sidekick","Super Suit,Casual","Alleyway","Medium shot","Static"
+3,Confrontation,1,"Hero and Villain face off","Hero,Villain","Super Suit,Dark Cloak","Abandoned Warehouse","Wide shot","Slow push in"
+3,Confrontation,2,"Hero: This ends now!","Hero","Super Suit","Abandoned Warehouse","Close-up","Static"
+3,Confrontation,3,"Villain laughs maniacally","Villain","Dark Cloak","Abandoned Warehouse","Close-up","Static"

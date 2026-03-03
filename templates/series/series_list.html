@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Series List - Memoon{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2>🐱 All Series</h2>
+    <div class="grid">
+        {% for series in series_list %}
+        <div class="card">
+            <h3><a href="{% url 'series:series_detail' series.pk %}">{{ series.title }}</a></h3>
+            <p>{{ series.description|truncatewords:30|default:"No description" }}</p>
+            <p><strong>Seasons:</strong> {{ series.seasons.count }}</p>
+            <p><strong>Characters:</strong> {{ series.characters.count }}</p>
+        </div>
+        {% empty %}
+        <p>No series available. <a href="/admin/series/series/add/">Add a series</a>.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

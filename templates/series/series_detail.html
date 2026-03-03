@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ series.title }} - Cartoon Manager{% endblock %}
+
+{% block content %}
+<div class="breadcrumb">
+    <a href="{% url 'series:series_list' %}">Series</a> &raquo; {{ series.title }}
+</div>
+
+<div class="card">
+    <h2>{{ series.title }}</h2>
+    <p>{{ series.description|default:"No description available" }}</p>
+    
+    <h3>Characters</h3>
+    <p>
+        {% for character in series.characters.all %}
+        <span class="character-tag">
+            <a href="{% url 'series:character_detail' character.pk %}" style="color: white; text-decoration: none;">{{ character.name }}</a>
+        </span>
+        {% empty %}
+        No characters added yet.
+        {% endfor %}
+    </p>
+</div>
+
+<div class="card">
+    <h2>Seasons</h2>
+    {% for season in seasons %}
+    <div class="card">
+        <h3><a href="{% url 'series:season_detail' season.pk %}">Season {{ season.number }}{% if season.title %}: {{ season.title }}{% endif %}</a></h3>
+        <p>{{ season.description|truncatewords:20|default:"No description" }}</p>
+        <p><strong>Episodes:</strong> {{ season.episodes.count }}</p>
+        
+        {% if season.episodes.all %}
+        <h4>Episodes:</h4>
+        <ul>
+            {% for episode in season.episodes.all %}
+            <li><a href="{% url 'series:episode_detail' episode.pk %}">{{ episode }}</a></li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+    {% empty %}
+    <p>No seasons available.</p>
+    {% endfor %}
+</div>
+{% endblock %}
