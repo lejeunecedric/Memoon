@@ -31,6 +31,7 @@ See: .planning/PROJECT.md
 ### Pending Todos
 
 - 2025-03-11: Add props list in shot menu
+- 2025-03-12: Add sample data prompt to Memoon setup
 
 ---
 
