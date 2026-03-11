@@ -14,7 +14,17 @@ urlpatterns = [
         name="episode_otio_export",
     ),
     path(
+        "episode/<int:episode_pk>/sequence/add/",
+        views.SequenceCreateView.as_view(),
+        name="sequence_add",
+    ),
+    path(
         "sequence/<int:pk>/", views.SequenceDetailView.as_view(), name="sequence_detail"
+    ),
+    path(
+        "sequence/<int:sequence_pk>/shot/add/",
+        views.ShotCreateView.as_view(),
+        name="shot_add",
     ),
     path("shot/<int:pk>/", views.ShotDetailView.as_view(), name="shot_detail"),
     path("characters/", views.CharacterListView.as_view(), name="character_list"),

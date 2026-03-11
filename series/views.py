@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.views.generic import ListView, DetailView, FormView
+from django.views.generic import ListView, DetailView, FormView, CreateView
+from django.urls import reverse_lazy
 from django.contrib import messages
 from django.db import transaction
 from django.http import HttpResponse
@@ -61,6 +62,26 @@ class EpisodeDetailView(DetailView):
         return context
 
 
+class SequenceCreateView(CreateView):
+    model = Sequence
+    fields = ["number", "title", "description"]
+    template_name = "series/sequence_form.html"
+
+    def get_success_url(self):
+        return reverse_lazy("series:episode_detail", kwargs={"pk": self.kwargs["episode_pk"]})
+
+    def form_valid(self, form):
+        episode = get_object_or_404(Episode, pk=self.kwargs["episode_pk"])
+        form.instance.episode = episode
+        messages.success(self.request, "Sequence added successfully!")
+        return super().form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["episode"] = get_object_or_404(Episode, pk=self.kwargs["episode_pk"])
+        return context
+
+
 class SequenceDetailView(DetailView):
     model = Sequence
     template_name = "series/sequence_detail.html"
@@ -71,6 +92,26 @@ class SequenceDetailView(DetailView):
         context["shots"] = self.object.shots.prefetch_related(
             "shotcharacter_set__character", "shotcharacter_set__wardrobe"
         )
+        return context
+
+
+class ShotCreateView(CreateView):
+    model = Shot
+    fields = ["number", "script", "background", "camera_angle", "camera_movement", "duration", "notes"]
+    template_name = "series/shot_form.html"
+
+    def get_success_url(self):
+        return reverse_lazy("series:sequence_detail", kwargs={"pk": self.kwargs["sequence_pk"]})
+
+    def form_valid(self, form):
+        sequence = get_object_or_404(Sequence, pk=self.kwargs["sequence_pk"])
+        form.instance.sequence = sequence
+        messages.success(self.request, "Shot added successfully!")
+        return super().form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["sequence"] = get_object_or_404(Sequence, pk=self.kwargs["sequence_pk"])
         return context
 
 

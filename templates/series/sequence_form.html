@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Sequence - {{ episode }}{% endblock %}
+
+{% block content %}
+<div class="breadcrumb">
+    <a href="{% url 'series:series_list' %}">Series</a> &raquo; 
+    <a href="{% url 'series:series_detail' episode.season.series.pk %}">{{ episode.season.series.title }}</a> &raquo; 
+    <a href="{% url 'series:season_detail' episode.season.pk %}">Season {{ episode.season.number }}</a> &raquo; 
+    <a href="{% url 'series:episode_detail' episode.pk %}">Episode {{ episode.number }}</a> &raquo; 
+    Add Sequence
+</div>
+
+<div class="card">
+    <h2>Add New Sequence</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn">Add Sequence</button>
+        <a href="{% url 'series:episode_detail' episode.pk %}" class="btn" style="background-color: #95a5a6;">Cancel</a>
+    </form>
+</div>
+{% endblock %}

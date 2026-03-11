@@ -17,7 +17,10 @@
 </div>
 
 <div class="card">
-    <h2>Shots ({{ shots|length }})</h2>
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+        <h2>Shots ({{ shots|length }})</h2>
+        <a href="{% url 'series:shot_add' sequence.pk %}" class="btn">+ Add Shot</a>
+    </div>
     
     <table>
         <thead>

@@ -19,7 +19,10 @@
 </div>
 
 <div class="card">
-    <h2>Sequences</h2>
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+        <h2>Sequences</h2>
+        <a href="{% url 'series:sequence_add' episode.pk %}" class="btn">+ Add Sequence</a>
+    </div>
     {% for sequence in sequences %}
     <div class="card">
         <h3><a href="{% url 'series:sequence_detail' sequence.pk %}">Sequence {{ sequence.number }}{% if sequence.title %}: {{ sequence.title }}{% endif %}</a></h3>
