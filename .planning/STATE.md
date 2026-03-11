@@ -9,11 +9,12 @@ See: .planning/PROJECT.md
 
 **Core Value:** A simple, clean way to organize production assets for stories
 
-**Current focus:** Phase 4 - Add dark mode (Complete)
+**Current focus:** Phase 5 - Add props model (Complete)
 
 ## Position
 
-**Current Phase:** Complete - Phase 4 executed
+**Current Phase:** Complete - Phase 5 executed
+**Next Phase:** Phase 6 - Add user roles and permissions
 
 ## Decisions
 
@@ -21,6 +22,7 @@ See: .planning/PROJECT.md
 |----------|-----------|---------|
 | Django + SQLite | Simple, proven stack | ✓ Good |
 | Dark mode via CSS variables | Standard approach, no libraries needed | ✓ Good |
+| ManyToMany with blank=True for props | Allows shots without props | ✓ Good |
 
 ## Accumulated Context
 
@@ -35,6 +37,7 @@ See: .planning/PROJECT.md
 ### Completed Work
 
 - Phase 4: Dark mode with theme toggle and localStorage persistence
+- Phase 5: Prop model with admin and UI integration
 
 ### Pending Todos
 
@@ -44,3 +47,10 @@ See: .planning/PROJECT.md
 ---
 
 *State updated: 2025-03-12*
+
+### Phase 5 Notes
+
+- Prop model created with name (CharField) and description (TextField)
+- ManyToMany relationship added from Shot to Prop
+- Props displayed in shot detail page
+- Admin interface for Prop management added

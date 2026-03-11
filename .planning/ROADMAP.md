@@ -86,13 +86,15 @@
 
 ### Phase 5: Add props model
 
-**Goal:** [To be planned]
-**Requirements**: TBD
-**Depends on:** Phase 4
-**Plans:** 0 plans
+**Goal:** Add Prop model for tracking physical objects in shots
 
-Plans:
-- [ ] TBD (run /gsd:plan-phase 5 to break down)
+**Requirements**: TBD
+
+**Depends on:** Phase 4
+
+**Plans:** 1 plan
+
+- [x] 05-01-PLAN.md — Add Prop model with admin and UI
 
 ### Phase 6: Add user roles and permissions
 
