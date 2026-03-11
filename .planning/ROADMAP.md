@@ -58,15 +58,15 @@
 
 ## Phase 4: Add dark mode
 
-**Goal:** [To be planned]
+**Goal:** Add dark mode with theme toggle and persistence
 
 **Requirements**: TBD
 
 **Depends on:** Phase 3
 
-**Plans:** 0 plans
+**Plans:** 1 plan
 
-- [ ] TBD (run `/gsd-plan-phase 4` to break down)
+- [x] 04-01-PLAN.md — Add dark mode with toggle and persistence
 
 ---
 
