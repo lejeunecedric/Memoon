@@ -28,6 +28,10 @@ See: .planning/PROJECT.md
 - 2025-03-11: Project initialized with 3 phases (Foundation, Enhanced Features, Polish)
 - 2025-03-11: Phase 4 added: Add dark mode
 
+### Pending Todos
+
+- 2025-03-11: Add props list in shot menu
+
 ---
 
 *State updated: 2025-03-11*
