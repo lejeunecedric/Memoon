@@ -14,7 +14,7 @@
             <p><strong>Shots:</strong> {{ character.shots.count }}</p>
             <p>
                 {% for series in character.series.all %}
-                <span class="character-tag" style="background-color: #2980b9;">{{ series.title }}</span>
+                <span class="character-tag" style="background-color: var(--link-color);">{{ series.title }}</span>
                 {% endfor %}
             </p>
         </div>

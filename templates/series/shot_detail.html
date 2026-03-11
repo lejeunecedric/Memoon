@@ -44,7 +44,7 @@
 
 <div class="card">
     <h3>Script</h3>
-    <div style="background-color: #f9f9f9; padding: 15px; border-left: 4px solid #2980b9;">
+    <div style="background-color: var(--hover-bg); padding: 15px; border-left: 4px solid var(--link-color);">
         {{ shot.script|linebreaks|default:"No script provided" }}
     </div>
 </div>
@@ -54,7 +54,7 @@
     
     <div style="margin: 15px 0;">
         <span class="field-label">Background:</span>
-        <div style="background-color: #f9f9f9; padding: 10px; margin-top: 5px; border-radius: 4px;">
+        <div style="background-color: var(--hover-bg); padding: 10px; margin-top: 5px; border-radius: 4px;">
             {{ shot.background|default:"No background specified" }}
         </div>
     </div>

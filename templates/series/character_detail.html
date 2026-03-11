@@ -16,7 +16,7 @@
     <h3>Appears in Series:</h3>
     <p>
         {% for series in character.series.all %}
-        <span class="character-tag" style="background-color: #2980b9;">
+        <span class="character-tag" style="background-color: var(--link-color);">
             <a href="{% url 'series:series_detail' series.pk %}" style="color: white; text-decoration: none;">{{ series.title }}</a>
         </span>
         {% empty %}
@@ -28,7 +28,7 @@
 <div class="card">
     <h3>Wardrobe Items</h3>
     {% for item in wardrobe_items %}
-    <div style="margin: 10px 0; padding: 10px; background-color: #ecf0f1; border-radius: 4px;">
+    <div style="margin: 10px 0; padding: 10px; background-color: var(--breadcrumb-bg); border-radius: 4px;">
         <strong>{{ item.name }}</strong>
         {% if item.description %}
         <br><small>{{ item.description }}</small>
