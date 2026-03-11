@@ -1,4 +1,4 @@
-.PHONY: help install dev run migrate createsuperuser test clean docker-build docker-run
+.PHONY: help install dev run migrate createsuperuser test lint clean docker-build docker-run
 
 help:
 	@echo "Memoon - Content Structure Manager"
@@ -9,7 +9,8 @@ help:
 	@echo "  make run             - Run development server on port 8089"
 	@echo "  make migrate         - Apply database migrations"
 	@echo "  make createsuperuser - Create admin user"
-	@echo "  make test            - Run tests"
+	@echo "  make test            - Run lint + tests"
+	@echo "  make lint            - Run ruff linter only"
 	@echo "  make clean           - Remove cache files"
 	@echo "  make docker-build    - Build Docker image"
 	@echo "  make docker-run      - Run Docker container"
@@ -36,7 +37,10 @@ createsuperuser:
 collectstatic:
 	python manage.py collectstatic --noinput
 
-test:
+lint:
+	python -m ruff check .
+
+test: lint
 	pytest
 
 clean:

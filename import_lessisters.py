@@ -211,7 +211,7 @@ def import_pdf_script(pdf_path):
     season_num, episode_num = parse_filename_episode_info(filename)
 
     if season_num is None:
-        print(f"  ⚠️ Could not parse episode info from filename")
+        print("  ⚠️ Could not parse episode info from filename")
         season_num = 1
         episode_num = 1
 
@@ -284,7 +284,7 @@ def import_pdf_script(pdf_path):
             char_actual_name = CHARACTER_ALIASES.get(char_name, char_name)
             character, _ = Character.objects.get_or_create(
                 name=char_actual_name,
-                defaults={"description": f"Character from Les Sisters"},
+                defaults={"description": "Character from Les Sisters"},
             )
             character.series.add(series)
 
@@ -325,9 +325,9 @@ def main():
             traceback.print_exc()
 
     print("\n" + "=" * 50)
-    print(f"🎉 Import complete!")
+    print("🎉 Import complete!")
     print(f"   Imported {imported_count} episodes")
-    print(f"\nRun ./start.sh and visit http://localhost:8089/admin/")
+    print("\nRun ./start.sh and visit http://localhost:8089/admin/")
 
 
 if __name__ == "__main__":

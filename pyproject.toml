@@ -46,3 +46,11 @@ target-version = ["py310"]
 [tool.ruff]
 line-length = 100
 target-version = "py310"
+
+[tool.ruff.lint]
+ignore = ["E402", "F403"]
+
+[tool.ruff.lint.per-file-ignores]
+"create_sample_data.py" = ["E402"]
+"import_lessisters.py" = ["E402"]
+"series/admin.py" = ["F403"]
