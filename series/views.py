@@ -133,6 +133,9 @@ class CharacterListView(ListView):
     template_name = "series/character_list.html"
     context_object_name = "characters"
 
+    def get_queryset(self):
+        return Character.objects.prefetch_related('series').order_by('series__title', 'name')
+
 
 class CharacterDetailView(DetailView):
     model = Character
