@@ -29,6 +29,7 @@ See: .planning/PROJECT.md
 - 2025-03-11: Project initialized with 3 phases (Foundation, Enhanced Features, Polish)
 - 2025-03-11: Phase 4 added: Add dark mode
 - 2025-03-12: Phase 4 executed - Dark mode implemented
+- 2025-03-12: Phase 5 added: Add props model
 
 ### Completed Work
 

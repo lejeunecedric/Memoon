@@ -84,6 +84,16 @@
 | POLI-02 | Phase 3 | Pending |
 | POLI-03 | Phase 3 | Pending |
 
+### Phase 5: Add props model
+
+**Goal:** [To be planned]
+**Requirements**: TBD
+**Depends on:** Phase 4
+**Plans:** 0 plans
+
+Plans:
+- [ ] TBD (run /gsd:plan-phase 5 to break down)
+
 ---
 
 *Roadmap created: 2025-03-11*
