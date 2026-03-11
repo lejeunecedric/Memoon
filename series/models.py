@@ -103,6 +103,17 @@ class WardrobeItem(models.Model):
         return f"{self.character.name} - {self.name}"
 
 
+class Prop(models.Model):
+    name = models.CharField(max_length=200)
+    description = models.TextField(blank=True)
+
+    class Meta:
+        ordering = ["name"]
+
+    def __str__(self):
+        return self.name
+
+
 class Shot(models.Model):
     sequence = models.ForeignKey(
         Sequence, on_delete=models.CASCADE, related_name="shots"
@@ -112,6 +123,7 @@ class Shot(models.Model):
     characters = models.ManyToManyField(
         Character, through="ShotCharacter", related_name="shots"
     )
+    props = models.ManyToManyField(Prop, related_name="shots", blank=True)
     background = models.CharField(
         max_length=500, blank=True, help_text="Background description"
     )
