@@ -9,6 +9,7 @@ from .models import (
     Character,
     WardrobeItem,
     ShotCharacter,
+    Prop,
 )
 
 
@@ -119,3 +120,9 @@ class ShotCharacterAdmin(admin.ModelAdmin):
     list_display = ["__str__", "shot", "character", "wardrobe"]
     list_filter = ["character", "wardrobe"]
     search_fields = ["shot__script", "character__name"]
+
+
+@admin.register(Prop)
+class PropAdmin(admin.ModelAdmin):
+    list_display = ["name", "description"]
+    search_fields = ["name", "description"]
