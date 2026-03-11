@@ -1,11 +1,11 @@
 {% extends "admin/base.html" %}
 
-{% block title %}{{ title }} | Memoon Administration{% endblock %}
+{% block title %}{{ title }} | Memoon Settings{% endblock %}
 
 {% block branding %}
 <div id="site-name">
     <a href="{% url 'admin:index' %}">
-        <span style="font-size: 1.5em;">🐱</span> Memoon Administration
+        <span style="font-size: 1.5em;">🐱</span> Memoon Settings
     </a>
 </div>
 {% if user.is_anonymous %}
