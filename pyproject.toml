@@ -1,0 +1,48 @@
+[project]
+name = "memoon"
+version = "0.1.0"
+description = "Content Structure Manager - The creative backbone for your stories"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [
+    { name = "Memoon Team", email = "hello@memoon.dev" }
+]
+requires-python = ">=3.10"
+dependencies = [
+    "Django>=4.0",
+    "pdfplumber>=0.11.0",
+    "opentimelineio>=0.18.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-django>=4.5",
+    "black>=23.0",
+    "ruff>=0.1.0",
+]
+
+[project.scripts]
+memoon = "cartoon_manager.manage:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=7.0",
+    "pytest-django>=4.5",
+]
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "cartoon_manager.settings"
+python_files = ["test_*.py", "*_test.py"]
+
+[tool.black]
+line-length = 100
+target-version = ["py310"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"

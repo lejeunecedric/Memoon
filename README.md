@@ -1,22 +1,26 @@
-# Cartoon Series Manager
+# Memoon — Content Structure Manager
 
-A Django application to manage cartoon series production, organizing content hierarchically from series down to individual shots.
+> The creative backbone for your stories. From concept to screen, keep every element of your narrative organized.
+
+## What is Memoon?
+
+Memoon is a Django-powered content structure manager designed for creative teams and solo storytellers. Whether you're producing animated series, writing screenplays, or managing multimedia projects, Memoon helps you organize your content hierarchically — from the big picture down to the finest detail.
 
 ## Features
 
-- **Hierarchical Structure**: Series → Seasons → Episodes → Sequences → Shots
-- **Shot Management**: Track script, characters, wardrobe, background, camera angle and movement
-- **Character Management**: Manage characters and their wardrobe items
-- **CSV Import**: Bulk import shots from CSV files
-- **Admin Interface**: Full-featured Django admin for data management
-- **Web Interface**: Browse series, seasons, episodes, sequences, shots, and characters
+- **Hierarchical Organization**: Series → Seasons → Episodes → Sequences → Shots
+- **Character & Wardrobe Management**: Track characters across seasons, manage their looks and costumes
+- **Production-Ready Metadata**: Script, background descriptions, camera angles, movements, duration — all in one place
+- **CSV Import**: Bulk import shots from CSV for rapid onboarding
+- **Web Interface**: Beautiful, intuitive browsing of your entire content library
+- **Admin Dashboard**: Full-featured Django admin for power users
 
-## Installation
+## Quick Start
 
 1. Activate the virtual environment:
 ```bash
-cd /tmp/cartoon_manager
-source /tmp/cartoon_venv/bin/activate
+cd /path/to/memoon
+source venv/bin/activate
 ```
 
 2. Run migrations (already done):
@@ -29,93 +33,116 @@ python manage.py migrate
 python manage.py createsuperuser
 ```
 
-4. Run the development server:
+4. Fire up the server:
 ```bash
-python manage.py runserver
+python manage.py runserver 8089
 ```
 
 5. Open your browser:
-- Web interface: http://127.0.0.1:8000/
-- Admin interface: http://127.0.0.1:8000/admin/
+- **Web Interface**: http://127.0.0.1:8089/
+- **Admin Panel**: http://127.0.0.1:8089/admin/
 
-## Data Structure
+## Content Structure
 
-### Series
-- Title, description
-- Contains multiple seasons
+Memoon organizes your project in a clear hierarchy:
 
-### Season
-- Season number
-- Contains multiple episodes
+| Level | Description |
+|-------|-------------|
+| **Series** | The complete work — title, description, overview |
+| **Season** | A season/arc within the series |
+| **Episode** | Individual episodes with titles and synopses |
+| **Sequence** | Scenes within episodes — the building blocks |
+| **Shot** | The atomic unit — camera angle, dialogue, characters, action |
 
-### Episode
-- Episode number and title
-- Contains multiple sequences
+### Supporting Elements
 
-### Sequence
-- Sequence number and optional title
-- Contains multiple shots
+- **Characters**: Reusable across series, with detailed profiles
+- **Wardrobe Items**: Every outfit, costume, or look for each character
 
-### Shot
-- Shot number
-- Script/dialogue
-- Background description
-- Camera angle
-- Camera movement
-- Duration
-- Associated characters with wardrobe items
+## CSV Import
 
-### Character
-- Name and description
-- Can appear in multiple series
-- Has wardrobe items
-
-### WardrobeItem
-- Name and description
-- Associated with a specific character
-
-## CSV Import Format
-
-Upload CSV files to bulk import shots. The CSV should have these columns:
-
-- `sequence_number` (required): The sequence number
-- `sequence_title` (optional): Title for the sequence
-- `shot_number` (required): The shot number
-- `script`: Dialogue/script text
-- `characters`: Comma-separated character names
-- `wardrobe`: Comma-separated wardrobe items (matches characters by position)
-- `background`: Background description
-- `camera_angle`: Camera angle description
-- `camera_movement`: Camera movement description
-
-### Example CSV:
+Got a spreadsheet full of shots? Import them in bulk:
 
 ```csv
 sequence_number,sequence_title,shot_number,script,characters,wardrobe,background,camera_angle,camera_movement
-1,Opening,1,"Hero: Let's go!","Hero","Cape","City Street","Wide shot","Static"
-1,Opening,2,"Sidekick: Right behind you!","Hero,Sidekick","Cape,Casual","City Street","Medium shot","Pan right"
-2,Chase,1,"Both running fast","Hero,Sidekick","Running Gear,Sportswear","Alleyway","Tracking shot","Follow movement"
+1,Opening Scene,1,"Hero: Ready for this?","Hero","Suit","Downtown","Wide","Static"
+1,Opening Scene,2,"Villain: You have no idea...","Villain","Cloak","Downtown","Close-up","Slow zoom"
+2,The Chase,1,"[Action sequence]","Hero,Rival","Running Gear","Alleyway","Tracking","Follow"
 ```
 
-## Usage
+## Why Memoon?
 
-1. Start by creating a Series in the admin interface
-2. Add Seasons and Episodes
-3. Create Characters and their Wardrobe items
-4. Add Sequences and Shots (via admin or CSV import)
-5. Browse the web interface to view the hierarchy
-6. Click through Series → Seasons → Episodes → Sequences → Shots to see details
+- **Structured, Not Rigid**: Define your own workflow within the hierarchy
+- **Team-Ready**: Multiple users can work through the admin interface
+- **Production-Proven**: Built for real creative workflows, not just demos
+- **Open Source**: Extend and customize to your heart's content
 
-## Navigation
+## Tech Stack
 
-- **Series List**: View all series
-- **Characters**: View all characters
-- **Import CSV**: Bulk import shots from CSV
-- **Admin**: Full data management interface
+- **Django 6.0.2** — The web framework
+- **SQLite** — Zero-config database
+- **Python 3.10+** — Core runtime
 
-## Development
+---
 
-The project uses:
-- Django 6.0.2
-- SQLite database
-- Bootstrap-inspired styling (custom CSS)
+## 🚀 Deployment
+
+### Option 1: UV (Recommended for Development)
+
+```bash
+# Install dependencies
+make install
+
+# Or with uv directly
+uv sync
+
+# Run the server
+make run
+```
+
+### Option 2: Docker (Recommended for Production)
+
+```bash
+# Build and run
+make docker
+
+# Or manually:
+docker build -t memoon:latest .
+docker run -d -p 8089:8089 --name memoon memoon:latest
+```
+
+### Option 3: Manual
+
+```bash
+# Install dependencies
+pip install -r requirements.txt
+
+# Run migrations
+python manage.py migrate
+
+# Create admin user
+python manage.py createsuperuser
+
+# Start server
+python manage.py runserver 8089
+```
+
+---
+
+## 📋 Makefile Commands
+
+| Command | Description |
+|---------|-------------|
+| `make install` | Install dependencies with uv |
+| `make dev` | Install with dev dependencies |
+| `make run` | Run development server |
+| `make migrate` | Apply database migrations |
+| `make createsuperuser` | Create admin user |
+| `make test` | Run tests |
+| `make clean` | Remove cache files |
+| `make docker-build` | Build Docker image |
+| `make docker-run` | Run Docker container |
+
+---
+
+*Memoon — because every great story deserves a great structure.*

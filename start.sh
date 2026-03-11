@@ -1,21 +1,30 @@
 #!/bin/bash
+# Memoon - Quick Start Script
 
-# Start the Django development server on port 8089
+set -e
 
-# Check if virtual environment exists
-if [ ! -d "venv" ]; then
-    echo "Creating virtual environment..."
-    python3 -m venv venv
+echo "🚀 Starting Memoon..."
+
+# Check if uv is available
+if ! command -v uv &> /dev/null; then
+    echo "📦 Installing uv..."
+    pip install uv
+fi
+
+# Install dependencies if not already done
+if [ ! -d ".venv" ]; then
+    echo "📦 Creating virtual environment and installing dependencies..."
+    uv venv .venv
+    uv sync
 fi
 
 # Activate virtual environment
-source venv/bin/activate
+source .venv/bin/activate
 
-# Install dependencies if needed
-if ! python -c "import django" 2>/dev/null; then
-    echo "Installing Django..."
-    pip install -r requirements.txt
-fi
+# Run migrations
+echo "🗄️ Running migrations..."
+python manage.py migrate --noinput
 
-echo "Starting Django development server on port 8089..."
+# Start the server
+echo "🌐 Starting server on http://localhost:8089"
 python manage.py runserver 8089
