@@ -56,6 +56,20 @@
 
 ---
 
+## Phase 4: Add dark mode
+
+**Goal:** [To be planned]
+
+**Requirements**: TBD
+
+**Depends on:** Phase 3
+
+**Plans:** 0 plans
+
+- [ ] TBD (run `/gsd-plan-phase 4` to break down)
+
+---
+
 ## Traceability
 
 | Requirement | Phase | Status |

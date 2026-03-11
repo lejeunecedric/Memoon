@@ -26,6 +26,7 @@ See: .planning/PROJECT.md
 ### Roadmap Evolution
 
 - 2025-03-11: Project initialized with 3 phases (Foundation, Enhanced Features, Polish)
+- 2025-03-11: Phase 4 added: Add dark mode
 
 ---
 
