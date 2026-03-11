@@ -30,6 +30,7 @@ See: .planning/PROJECT.md
 - 2025-03-11: Phase 4 added: Add dark mode
 - 2025-03-12: Phase 4 executed - Dark mode implemented
 - 2025-03-12: Phase 5 added: Add props model
+- 2025-03-12: Phase 6 added: Add user roles and permissions
 
 ### Completed Work
 

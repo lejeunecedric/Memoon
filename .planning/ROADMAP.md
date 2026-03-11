@@ -94,6 +94,16 @@
 Plans:
 - [ ] TBD (run /gsd:plan-phase 5 to break down)
 
+### Phase 6: Add user roles and permissions
+
+**Goal:** [To be planned]
+**Requirements**: TBD
+**Depends on:** Phase 5
+**Plans:** 0 plans
+
+Plans:
+- [ ] TBD (run /gsd:plan-phase 6 to break down)
+
 ---
 
 *Roadmap created: 2025-03-11*
