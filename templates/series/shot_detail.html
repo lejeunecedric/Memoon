@@ -40,6 +40,21 @@
         <p>No characters assigned to this shot.</p>
         {% endfor %}
     </div>
+
+    <div class="shot-props" style="margin-top: 20px;">
+        <h3>Props</h3>
+        {% for prop in props %}
+        <div style="margin: 10px 0; padding: 10px; background: white; border-radius: 4px;">
+            <span class="field-label">Prop:</span>
+            <span class="field-value">{{ prop.name }}</span>
+            {% if prop.description %}
+            <br><small>{{ prop.description }}</small>
+            {% endif %}
+        </div>
+        {% empty %}
+        <p>No props assigned to this shot.</p>
+        {% endfor %}
+    </div>
 </div>
 
 <div class="card">

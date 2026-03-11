@@ -16,6 +16,7 @@ from .models import (
     Character,
     WardrobeItem,
     ShotCharacter,
+    Prop,
 )
 from .forms import CSVImportForm
 from .exporters.otio_exporter import export_episode
@@ -125,6 +126,7 @@ class ShotDetailView(DetailView):
         context["shot_characters"] = self.object.shotcharacter_set.select_related(
             "character", "wardrobe"
         )
+        context["props"] = self.object.props.all()
         return context
 
 
