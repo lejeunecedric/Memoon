@@ -11,7 +11,12 @@
 </div>
 
 <div class="card">
-    <h2>{{ episode }}</h2>
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h2>{{ episode }}</h2>
+        <div>
+            <a href="{% url 'series:episode_otio_export' episode.pk %}" class="btn" target="_blank">Export OTIO</a>
+        </div>
+    </div>
     <p>{{ episode.description|default:"No description available" }}</p>
     {% if episode.duration %}
     <p><strong>Duration:</strong> {{ episode.duration }}</p>
