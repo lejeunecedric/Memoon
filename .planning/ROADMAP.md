@@ -12,91 +12,88 @@
 **Status:** 100% Complete  
 **Tag:** `v1.0`
 
-### Foundation (Phases 01-03)
-Core application stability - Series, Seasons, Episodes, Sequences, Shots, Characters, Wardrobe management
+### Phase Summary
 
-- ✅ CORE-01: Application runs without errors
-- ✅ CORE-02: All CRUD operations work
-- ✅ CORE-03: CSV import functions correctly
-
-### Phase 04: Dark Mode ✅
-**Goal:** Add dark mode with theme toggle and persistence
-
-- ✅ CSS custom properties for theming
-- ✅ Theme toggle with localStorage persistence
-- ✅ System preference detection
-
-### Phase 05: Props Model ✅
-**Goal:** Add Prop model for tracking physical objects in shots
-
-- ✅ Prop model with name/description
-- ✅ ManyToMany Shot↔Prop relationship
-- ✅ Admin interface with search
-- ✅ Props display in shot detail
-
-### Phase 06: User Authentication ✅
-**Goal:** Add user authentication, roles, and permissions
-
-- ✅ AUTH-01: User authentication (login/logout)
-- ✅ AUTH-02: User roles (Admin, Power User, User)
-- ✅ AUTH-03: Permission checks based on roles
-- ✅ AUTH-04: User menu in UI
+| Phase | Name | Status |
+|-------|------|--------|
+| 01-03 | Foundation | ✅ Complete |
+| 04 | Dark Mode | ✅ Complete |
+| 05 | Props Model | ✅ Complete |
+| 06 | User Authentication | ✅ Complete |
 
 ---
 
 ## Milestone: v1.1 - Storyboard Display (In Progress)
 
-**Started:** 2026-03-12
+**Started:** 2026-03-12  
+**Goal:** Add visual storyboard display at Episode and Sequence levels with optional image upload per shot.
 
-### Goal
+## Phases
 
-Add visual storyboard display at Episode and Sequence levels with optional image upload per shot.
+- [ ] **Phase 07: Storyboard Display** - Grid views + image upload for Episode/Sequence storyboards
 
-### Requirements
+## Phase Details
 
-- [ ] **STORY-01**: Storyboard grid display at Episode level
-- [ ] **STORY-02**: Storyboard grid display at Sequence level  
-- [ ] **STORY-03**: Optional image upload per shot
-- [ ] **STORY-04**: Image display in storyboard grids
+### Phase 07: Storyboard Display
 
-### Success Criteria
+**Goal:** Users can view sequences and shots as visual cards in grid layouts at Episode and Sequence levels, with optional image upload and display.
 
-1. Episode view shows sequences/shots as visual cards in a grid
-2. Sequence view shows shots as visual cards in a grid
-3. Users can optionally upload images to shots
-4. Uploaded images display in storyboard grids
+**Depends on:** Phase 06 (User Authentication)
+
+**Requirements:** STORY-01, STORY-02, STORY-03, STORY-04
+
+**Success Criteria** (what must be TRUE):
+
+1. User viewing an Episode sees sequences displayed as visual cards in a responsive grid layout
+2. User viewing a Sequence sees shots displayed as visual cards in a responsive grid layout
+3. User can optionally upload an image file to any shot via the shot detail or edit interface
+4. When a shot has an uploaded image, that image displays within the shot card in both Episode and Sequence view grids
+
+**Plans:** TBD
 
 ---
 
-### v1.2 - Enhanced Features
+## Milestone: v1.2 - Enhanced Features
 
 **Goal:** Add features to improve usability
 
 **Requirements:**
 
-- [ ] **FEAT-01**: Search functionality across all models
-- [ ] **FEAT-02**: Better filtering and sorting
-- [ ] **FEAT-03**: Export to common formats (JSON, CSV)
+- [ ] FEAT-01: Search functionality across all models
+- [ ] FEAT-02: Better filtering and sorting
+- [ ] FEAT-03: Export to common formats (JSON, CSV)
 
 **Success Criteria:**
+
 1. Search returns relevant results
 2. Filters work on list views
 3. Export produces valid files
 
-### v1.3 - Polish & Documentation
+---
+
+## Milestone: v1.3 - Polish & Documentation
 
 **Goal:** Improve user experience and add documentation
 
 **Requirements:**
 
-- [ ] **POLI-01**: Fix any bugs discovered
-- [ ] **POLI-02**: Improve UI/UX
-- [ ] **POLI-03**: Add user documentation
+- [ ] POLI-01: Fix any bugs discovered
+- [ ] POLI-02: Improve UI/UX
+- [ ] POLI-03: Add user documentation
 
 **Success Criteria:**
+
 1. No critical bugs
 2. UI is intuitive
 3. README is complete
+
+---
+
+## Progress
+
+| Phase | Plans Complete | Status | Completed |
+|-------|----------------|--------|-----------|
+| 07 - Storyboard Display | 0/1 | Not started | - |
 
 ---
 
@@ -125,4 +122,4 @@ Add visual storyboard display at Episode and Sequence levels with optional image
 ---
 
 *Roadmap created: 2025-03-11*  
-*Last updated: 2026-03-12 - Milestone v1.0 completed*
+*Last updated: 2026-03-12 - Milestone v1.1 started*
