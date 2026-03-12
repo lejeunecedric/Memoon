@@ -83,6 +83,10 @@
 | POLI-01 | Phase 3 | Pending |
 | POLI-02 | Phase 3 | Pending |
 | POLI-03 | Phase 3 | Pending |
+| AUTH-01 | Phase 6 | Pending |
+| AUTH-02 | Phase 6 | Pending |
+| AUTH-03 | Phase 6 | Pending |
+| AUTH-04 | Phase 6 | Pending |
 
 ### Phase 5: Add props model
 
@@ -98,13 +102,20 @@
 
 ### Phase 6: Add user roles and permissions
 
-**Goal:** [To be planned]
-**Requirements**: TBD
+**Goal:** Add user authentication, roles, and permissions with UI integration
+
+**Requirements:** 
+- AUTH-01: User authentication (login/logout) functionality
+- AUTH-02: User roles (Admin, Power User, User)
+- AUTH-03: Permission checks based on roles
+- AUTH-04: User menu in UI (from todo)
+
 **Depends on:** Phase 5
-**Plans:** 0 plans
+
+**Plans:** 1 plan
 
 Plans:
-- [ ] TBD (run /gsd:plan-phase 6 to break down)
+- [x] 06-01-PLAN.md — Add user authentication, roles, and permissions
 
 ---
 
