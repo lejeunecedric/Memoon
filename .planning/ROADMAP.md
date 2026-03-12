@@ -30,7 +30,7 @@
 
 ## Phases
 
-- [ ] **Phase 07: Storyboard Display** - Grid views + image upload for Episode/Sequence storyboards
+- [x] **Phase 07: Storyboard Display** - Grid views + image upload for Episode/Sequence storyboards (completed 2026-03-12)
 
 ## Phase Details
 
@@ -49,7 +49,7 @@
 3. User can optionally upload an image file to any shot via the shot detail or edit interface
 4. When a shot has an uploaded image, that image displays within the shot card in both Episode and Sequence view grids
 
-**Plans:** 1 plan
+**Plans:** 1/1 plans complete
 
 - [ ] 07-01-PLAN.md — Add image field to Shot model + create storyboard grid views/templates
 
@@ -95,7 +95,7 @@
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 07 - Storyboard Display | 0/1 | Not started | - |
+| 07 - Storyboard Display | 1/1 | Complete   | 2026-03-12 |
 
 ---
 
