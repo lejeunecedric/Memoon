@@ -71,7 +71,11 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
-    }
+    },
+    "test": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.test.sqlite3",
+    },
 }
 
 
@@ -113,3 +117,7 @@ STATIC_URL = "static/"
 
 OTIO_MEDIA_BASE_PATH = None
 OTIO_DEFAULT_FRAMERATE = 24
+
+# Authentication
+LOGIN_URL = "/accounts/login/"
+LOGIN_REDIRECT_URL = "/"

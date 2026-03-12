@@ -111,6 +111,29 @@
         .theme-toggle:hover {
             background-color: var(--btn-hover);
         }
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .user-menu-btn {
+            background: var(--nav-bg);
+            border: 1px solid var(--border-color);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background-color 0.3s;
+            text-decoration: none;
+        }
+        .user-menu-btn:hover {
+            background-color: var(--btn-hover);
+        }
+        .username-display {
+            color: white;
+            font-size: 0.9rem;
+        }
         nav {
             background-color: var(--nav-bg);
             padding: 0.5rem;
@@ -228,7 +251,19 @@
                 </div>
             </div>
             <div class="header-right">
-                <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode">🌓</button>
+                <div class="user-menu">
+                    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode">🌓</button>
+                    {% if user.is_authenticated %}
+                        <span class="username-display">{{ user.username }}</span>
+                        <a href="/admin/" class="user-menu-btn">Settings</a>
+                        <form method="post" action="{% url 'series:logout' %}" style="display: inline; margin: 0;">
+                            {% csrf_token %}
+                            <button type="submit" class="user-menu-btn">Logout</button>
+                        </form>
+                    {% else %}
+                        <a href="{% url 'series:login' %}" class="user-menu-btn">Login</a>
+                    {% endif %}
+                </div>
             </div>
         </div>
     </header>
