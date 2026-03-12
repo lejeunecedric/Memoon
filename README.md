@@ -17,6 +17,12 @@ Memoon is a Django-powered content structure manager designed for creative teams
 
 ## Quick Start
 
+### Option 1: Double-click (Windows)
+
+Simply double-click `run_test_server.bat` in the project folder. It will open a terminal and start the server at http://127.0.0.1:8000/
+
+### Option 2: Command Line
+
 1. Activate the virtual environment:
 ```bash
 cd /path/to/memoon
@@ -35,12 +41,12 @@ python manage.py createsuperuser
 
 4. Fire up the server:
 ```bash
-python manage.py runserver 8089
+python manage.py runserver
 ```
 
 5. Open your browser:
-- **Web Interface**: http://127.0.0.1:8089/
-- **Admin Panel**: http://127.0.0.1:8089/admin/
+- **Web Interface**: http://127.0.0.1:8000/
+- **Admin Panel**: http://127.0.0.1:8000/admin/
 
 ## Content Structure
 
