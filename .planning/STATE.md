@@ -3,7 +3,7 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: - Initial Release ✅ Complete
 status: completed
-last_updated: "2026-03-12T07:02:08.720Z"
+last_updated: "2026-03-12T07:07:14.822Z"
 progress:
   total_phases: 1
   completed_phases: 1
@@ -70,6 +70,7 @@ See: .planning/PROJECT.md
 
 ### Pending Todos
 
+- **2026-03-12: Add default user and document in README** — Create default login credentials (user/password) and document in README for first-time users
 - **2026-03-12: Sort characters by series on All characters page** — UI enhancement to group/filter characters by their associated series
 - ~~2025-03-11: Add props list in shot menu~~ ✓ Completed (Phase 5)
 - ~~2025-03-12: Add sample data prompt to Memoon setup~~ ✓ Completed
