@@ -136,6 +136,9 @@ class Shot(models.Model):
     )
     duration = models.DurationField(blank=True, null=True)
     notes = models.TextField(blank=True)
+    image = models.ImageField(
+        upload_to="storyboards/", blank=True, null=True, help_text="Optional storyboard image"
+    )
 
     class Meta:
         ordering = ["sequence", "number"]

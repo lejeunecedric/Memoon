@@ -1,4 +1,5 @@
 from django import forms
+from .models import Shot
 
 
 class CSVImportForm(forms.Form):
@@ -22,3 +23,21 @@ class CSVImportForm(forms.Form):
         super().__init__(*args, **kwargs)
         if series_queryset is not None:
             self.fields["series"].queryset = series_queryset
+
+
+class ShotForm(forms.ModelForm):
+    """Form for creating and editing shots with image upload support."""
+    
+    class Meta:
+        model = Shot
+        fields = [
+            "number", "script", "background", "camera_angle", 
+            "camera_movement", "duration", "notes", "image"
+        ]
+        widgets = {
+            "script": forms.Textarea(attrs={"rows": 4}),
+            "notes": forms.Textarea(attrs={"rows": 3}),
+            "background": forms.TextInput(attrs={"placeholder": "Describe the background"}),
+            "camera_angle": forms.TextInput(attrs={"placeholder": "e.g., Wide shot, Close-up"}),
+            "camera_movement": forms.TextInput(attrs={"placeholder": "e.g., Static, Pan, Dolly"}),
+        }

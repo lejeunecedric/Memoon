@@ -15,6 +15,14 @@
 <div class="card">
     <h2>{{ shot }}</h2>
     
+    {% if shot.image %}
+    <div style="margin-bottom: 20px;">
+        <h3>Storyboard Image</h3>
+        <img src="{{ shot.image.url }}" alt="Storyboard for shot {{ shot.number }}" 
+             style="max-width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
+    </div>
+    {% endif %}
+    
     <div class="shot-info">
         <h3>Characters & Wardrobe</h3>
         {% for sc in shot_characters %}
@@ -106,5 +114,5 @@
 </div>
 
 <a href="{% url 'series:sequence_detail' shot.sequence.pk %}" class="btn">Back to Sequence</a>
-<a href="/admin/series/shot/{{ shot.pk }}/change/" class="btn" style="background-color: #27ae60;">Edit in Admin</a>
+<a href="/admin/series/shot/{{ shot.pk }}/change/" class="btn" style="background-color: #27ae60;">Edit Shot (including image)</a>
 {% endblock %}
