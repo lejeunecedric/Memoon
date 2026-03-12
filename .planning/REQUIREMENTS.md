@@ -24,7 +24,7 @@
 
 | ID | Requirement | Phase | Status |
 |----|-------------|-------|--------|
-| FEAT-01 | Search functionality across all models | Phase 08 | 🔄 In Progress |
+| FEAT-01 | Search functionality across all models | Phase 08 | ✅ Complete |
 | FEAT-02 | Better filtering and sorting | Phase 09 | ⏳ Planned |
 | FEAT-03 | Export to common formats (JSON, CSV) | Phase 10 | ⏳ Planned |
 | TODO-01 | Sort characters by series on All characters page | Phase 09 | ⏳ Planned |

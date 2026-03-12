@@ -81,7 +81,7 @@ See `.planning/milestones/v1.1-storyboard-display.md`
 
 **Requirements:**
 
-- [ ] FEAT-01: Search functionality across all models
+- [x] FEAT-01: Search functionality across all models
 - [ ] FEAT-02: Better filtering and sorting
 - [ ] FEAT-03: Export to common formats (JSON, CSV)
 
@@ -116,6 +116,7 @@ See `.planning/milestones/v1.1-storyboard-display.md`
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 07 - Storyboard Display | 1/1 | Complete    | 2026-03-12 |
+| 08 - Search functionality | 1/1 | Complete    | 2026-03-12 |
 
 ---
 
@@ -134,7 +135,7 @@ See `.planning/milestones/v1.1-storyboard-display.md`
 | STORY-02 | v1.1 | Phase 07 | ✅ Complete |
 | STORY-03 | v1.1 | Phase 07 | ✅ Complete |
 | STORY-04 | v1.1 | Phase 07 | ✅ Complete |
-| FEAT-01 | v1.2 | Future | ⏳ Pending |
+| FEAT-01 | v1.2 | Phase 08 | ✅ Complete |
 | FEAT-02 | v1.2 | Future | ⏳ Pending |
 | FEAT-03 | v1.2 | Future | ⏳ Pending |
 | POLI-01 | v1.3 | Future | ⏳ Pending |
@@ -154,7 +155,7 @@ See `.planning/milestones/v1.1-storyboard-display.md`
 4. Each result links to the appropriate detail page
 
 Plans:
-- [ ] 08-01-PLAN.md — Global search across all models with search form, view, and results template
+- [x] 08-01-PLAN.md — Global search across all models with search form, view, and results template
 
 ### Phase 9: Filtering and sorting improvements
 
