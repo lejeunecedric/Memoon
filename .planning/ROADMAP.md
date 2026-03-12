@@ -23,14 +23,34 @@
 
 ---
 
-## Milestone: v1.1 - Storyboard Display (In Progress)
+## Milestone: v1.1 - Storyboard Display ✅ Complete
+
+**Date:** 2026-03-12  
+**Status:** 100% Complete  
+**Tag:** `v1.1`
+
+### Phase Summary
+
+| Phase | Name | Status |
+|-------|------|--------|
+| 07 | Storyboard Display | ✅ Complete |
+
+---
+
+## Milestone: v1.2 - Enhanced Features (In Progress)
 
 **Started:** 2026-03-12  
-**Goal:** Add visual storyboard display at Episode and Sequence levels with optional image upload per shot.
+**Goal:** Add features to improve usability
 
 ## Phases
 
 - [x] **Phase 07: Storyboard Display** - Grid views + image upload for Episode/Sequence storyboards (completed 2026-03-12)
+
+---
+
+## Milestone v1.1 Complete Archive
+
+See `.planning/milestones/v1.1-storyboard-display.md`
 
 ## Phase Details
 
@@ -110,10 +130,10 @@
 | AUTH-02 | v1.0 | Phase 06 | ✅ Complete |
 | AUTH-03 | v1.0 | Phase 06 | ✅ Complete |
 | AUTH-04 | v1.0 | Phase 06 | ✅ Complete |
-| STORY-01 | v1.1 | Phase 07 | ⏳ Pending |
-| STORY-02 | v1.1 | Phase 07 | ⏳ Pending |
-| STORY-03 | v1.1 | Phase 07 | ⏳ Pending |
-| STORY-04 | v1.1 | Phase 07 | ⏳ Pending |
+| STORY-01 | v1.1 | Phase 07 | ✅ Complete |
+| STORY-02 | v1.1 | Phase 07 | ✅ Complete |
+| STORY-03 | v1.1 | Phase 07 | ✅ Complete |
+| STORY-04 | v1.1 | Phase 07 | ✅ Complete |
 | FEAT-01 | v1.2 | Future | ⏳ Pending |
 | FEAT-02 | v1.2 | Future | ⏳ Pending |
 | FEAT-03 | v1.2 | Future | ⏳ Pending |
@@ -124,4 +144,4 @@
 ---
 
 *Roadmap created: 2025-03-11*  
-*Last updated: 2026-03-12 - Milestone v1.1 started*
+*Last updated: 2026-03-12 - Milestone v1.1 complete, v1.2 started*

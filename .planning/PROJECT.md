@@ -21,13 +21,16 @@ A simple, clean way to organize production assets for stories — Series → Sea
 - ✅ AUTH-04: User menu in UI
 - ✅ FEAT-01: Dark mode with theme toggle
 - ✅ FEAT-02: Props model for tracking physical objects
+- ✅ STORY-01: Storyboard grid display at Episode level (sequences/shots as visual cards)
+- ✅ STORY-02: Storyboard grid display at Sequence level (shots as visual cards)
+- ✅ STORY-03: Optional image upload per shot
+- ✅ STORY-04: Image display in storyboard grids (when uploaded)
 
-### Active (v1.1)
+### Active (v1.2)
 
-- [ ] STORY-01: Storyboard grid display at Episode level (sequences/shots as visual cards)
-- [ ] STORY-02: Storyboard grid display at Sequence level (shots as visual cards)
-- [ ] STORY-03: Optional image upload per shot
-- [ ] STORY-04: Image display in storyboard grids (when uploaded)
+- [ ] FEAT-01: Search functionality across all models
+- [ ] FEAT-02: Better filtering and sorting
+- [ ] FEAT-03: Export to common formats (JSON, CSV)
 
 ### Out of Scope
 
@@ -47,4 +50,4 @@ A simple, clean way to organize production assets for stories — Series → Sea
 
 ---
 
-*Last updated: 2026-03-12 after v1.0 milestone*
+*Last updated: 2026-03-12 after v1.1 milestone complete*
