@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}Storyboard - {{ episode }}{% endblock %}
+
+{% block content %}
+<div class="breadcrumb">
+    <a href="{% url 'series:series_list' %}">Series</a> &raquo; 
+    <a href="{% url 'series:series_detail' episode.season.series.pk %}">{{ episode.season.series.title }}</a> &raquo; 
+    <a href="{% url 'series:season_detail' episode.season.pk %}">Season {{ episode.season.number }}</a> &raquo; 
+    Episode {{ episode.number }} - Storyboard
+</div>
+
+<div class="card" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+    <h2>Storyboard: {{ episode }}</h2>
+    <div>
+        <a href="{% url 'series:episode_detail' episode.pk %}" class="btn" style="background-color: #95a5a6;">List View</a>
+    </div>
+</div>
+
+<div class="grid">
+    {% for sequence in sequences %}
+    <div class="card" style="padding: 0; overflow: hidden;">
+        {% with first_shot=sequence.shots.first %}
+        {% if first_shot and first_shot.image %}
+        <a href="{% url 'series:sequence_storyboard' sequence.pk %}">
+            <img src="{{ first_shot.image.url }}" alt="Sequence {{ sequence.number }}" 
+                 style="width: 100%; height: 180px; object-fit: cover;">
+        </a>
+        {% else %}
+        <div style="width: 100%; height: 180px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+                    display: flex; align-items: center; justify-content: center;">
+            <a href="{% url 'series:sequence_storyboard' sequence.pk %}" style="text-decoration: none; color: white;">
+                <span style="font-size: 3rem;">🎬</span>
+            </a>
+        </div>
+        {% endif %}
+        {% endwith %}
+        
+        <div style="padding: 15px;">
+            <h3 style="margin: 0 0 10px 0;">
+                <a href="{% url 'series:sequence_storyboard' sequence.pk %}" 
+                   style="color: var(--link-color); text-decoration: none;">
+                    Sequence {{ sequence.number }}
+                </a>
+            </h3>
+            {% if sequence.title %}
+            <p style="margin: 5px 0; color: var(--text-color);">{{ sequence.title }}</p>
+            {% endif %}
+            {% if sequence.description %}
+            <p style="margin: 5px 0; font-size: 0.9em; color: #666;">{{ sequence.description|truncatechars:100 }}</p>
+            {% endif %}
+            <p style="margin: 10px 0 0 0; font-size: 0.85em; color: #888;">
+                {{ sequence.shots.count }} shot{{ sequence.shots.count|pluralize }}
+            </p>
+        </div>
+    </div>
+    {% empty %}
+    <div class="card">
+        <p style="text-align: center; color: #666;">No sequences in this episode yet.</p>
+        <p style="text-align: center;">
+            <a href="{% url 'series:sequence_add' episode.pk %}" class="btn">Add Sequence</a>
+        </p>
+    </div>
+    {% endfor %}
+</div>
+
+<div style="margin-top: 20px; text-align: center;">
+    <a href="{% url 'series:episode_detail' episode.pk %}" class="btn" style="background-color: #95a5a6;">Back to Episode</a>
+</div>
+{% endblock %}

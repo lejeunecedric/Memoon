@@ -98,6 +98,36 @@ class SequenceDetailView(DetailView):
         return context
 
 
+class EpisodeStoryboardView(DetailView):
+    """View for displaying sequences as visual cards in a grid layout."""
+    model = Episode
+    template_name = "series/episode_storyboard.html"
+    context_object_name = "episode"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # Prefetch shots with images for thumbnail display
+        context["sequences"] = self.object.sequences.prefetch_related(
+            "shots__characters"
+        ).all()
+        return context
+
+
+class SequenceStoryboardView(DetailView):
+    """View for displaying shots as visual cards in a grid layout."""
+    model = Sequence
+    template_name = "series/sequence_storyboard.html"
+    context_object_name = "sequence"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # Prefetch related data for display
+        context["shots"] = self.object.shots.prefetch_related(
+            "shotcharacter_set__character", "shotcharacter_set__wardrobe"
+        ).all()
+        return context
+
+
 class ShotCreateView(CreateView):
     model = Shot
     fields = ["number", "script", "background", "camera_angle", "camera_movement", "duration", "notes"]

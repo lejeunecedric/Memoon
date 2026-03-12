@@ -11,6 +11,11 @@ urlpatterns = [
     path("season/<int:pk>/", views.SeasonDetailView.as_view(), name="season_detail"),
     path("episode/<int:pk>/", views.EpisodeDetailView.as_view(), name="episode_detail"),
     path(
+        "episode/<int:pk>/storyboard/",
+        views.EpisodeStoryboardView.as_view(),
+        name="episode_storyboard",
+    ),
+    path(
         "episode/<int:pk>/export/otio/",
         views.episode_otio_export,
         name="episode_otio_export",
@@ -22,6 +27,11 @@ urlpatterns = [
     ),
     path(
         "sequence/<int:pk>/", views.SequenceDetailView.as_view(), name="sequence_detail"
+    ),
+    path(
+        "sequence/<int:pk>/storyboard/",
+        views.SequenceStoryboardView.as_view(),
+        name="sequence_storyboard",
     ),
     path(
         "sequence/<int:sequence_pk>/shot/add/",
