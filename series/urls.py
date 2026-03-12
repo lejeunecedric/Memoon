@@ -4,6 +4,8 @@ from . import views
 app_name = "series"
 
 urlpatterns = [
+    path("accounts/login/", views.login_view, name="login"),
+    path("accounts/logout/", views.logout_view, name="logout"),
     path("", views.SeriesListView.as_view(), name="series_list"),
     path("series/<int:pk>/", views.SeriesDetailView.as_view(), name="series_detail"),
     path("season/<int:pk>/", views.SeasonDetailView.as_view(), name="season_detail"),
