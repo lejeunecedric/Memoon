@@ -33,3 +33,4 @@ See: .planning/PROJECT.md
 | # | Description | Date | Commit | Directory |
 |---|-------------|------|--------|-----------|
 | 1 | Update MILESTONES.md with v1.1 and archive notes | 2026-03-12 | ec83ce7 | [1-update-the-milestones-md](./quick/1-update-the-milestones-md/) |
+| 2 | Set license to MIT | 2026-03-12 | 296554e | [2-set-license-to-mit](./quick/2-set-license-to-mit/) |
