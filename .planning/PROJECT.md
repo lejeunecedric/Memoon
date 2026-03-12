@@ -10,9 +10,17 @@ A simple, clean way to organize production assets for stories — Series → Sea
 
 ## Requirements
 
-### Validated
+### Validated (v1.0)
 
-(None yet — ship to validate)
+- ✅ CORE-01: Application runs without errors
+- ✅ CORE-02: All CRUD operations work
+- ✅ CORE-03: CSV import functions correctly
+- ✅ AUTH-01: User authentication (login/logout) functionality
+- ✅ AUTH-02: User roles (Admin, Power User, User)
+- ✅ AUTH-03: Permission checks based on roles
+- ✅ AUTH-04: User menu in UI
+- ✅ FEAT-01: Dark mode with theme toggle
+- ✅ FEAT-02: Props model for tracking physical objects
 
 ### Active
 
