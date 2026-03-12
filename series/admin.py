@@ -10,6 +10,7 @@ from .models import (
     WardrobeItem,
     ShotCharacter,
     Prop,
+    UserProfile,
 )
 
 
@@ -126,3 +127,11 @@ class ShotCharacterAdmin(admin.ModelAdmin):
 class PropAdmin(admin.ModelAdmin):
     list_display = ["name", "description"]
     search_fields = ["name", "description"]
+
+
+@admin.register(UserProfile)
+class UserProfileAdmin(admin.ModelAdmin):
+    list_display = ["user", "role"]
+    list_filter = ["role"]
+    search_fields = ["user__username", "user__email"]
+    raw_id_fields = ["user"]
