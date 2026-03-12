@@ -57,6 +57,7 @@ See: .planning/PROJECT.md
 
 - 2025-03-11: Add props list in shot menu
 - 2025-03-12: Add sample data prompt to Memoon setup
+- 2026-03-12: Add user login/logout/settings menu on top right
 
 ---
 
