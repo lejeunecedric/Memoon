@@ -44,9 +44,31 @@ Core application stability - Series, Seasons, Episodes, Sequences, Shots, Charac
 
 ---
 
-## Future Milestones
+## Milestone: v1.1 - Storyboard Display (In Progress)
 
-### v1.1 - Enhanced Features
+**Started:** 2026-03-12
+
+### Goal
+
+Add visual storyboard display at Episode and Sequence levels with optional image upload per shot.
+
+### Requirements
+
+- [ ] **STORY-01**: Storyboard grid display at Episode level
+- [ ] **STORY-02**: Storyboard grid display at Sequence level  
+- [ ] **STORY-03**: Optional image upload per shot
+- [ ] **STORY-04**: Image display in storyboard grids
+
+### Success Criteria
+
+1. Episode view shows sequences/shots as visual cards in a grid
+2. Sequence view shows shots as visual cards in a grid
+3. Users can optionally upload images to shots
+4. Uploaded images display in storyboard grids
+
+---
+
+### v1.2 - Enhanced Features
 
 **Goal:** Add features to improve usability
 
@@ -61,7 +83,7 @@ Core application stability - Series, Seasons, Episodes, Sequences, Shots, Charac
 2. Filters work on list views
 3. Export produces valid files
 
-### v1.2 - Polish & Documentation
+### v1.3 - Polish & Documentation
 
 **Goal:** Improve user experience and add documentation
 
@@ -85,16 +107,20 @@ Core application stability - Series, Seasons, Episodes, Sequences, Shots, Charac
 | CORE-01 | v1.0 | Foundation | ✅ Complete |
 | CORE-02 | v1.0 | Foundation | ✅ Complete |
 | CORE-03 | v1.0 | Foundation | ✅ Complete |
-| FEAT-01 | v1.1 | Future | ⏳ Pending |
-| FEAT-02 | v1.1 | Future | ⏳ Pending |
-| FEAT-03 | v1.1 | Future | ⏳ Pending |
-| POLI-01 | v1.2 | Future | ⏳ Pending |
-| POLI-02 | v1.2 | Future | ⏳ Pending |
-| POLI-03 | v1.2 | Future | ⏳ Pending |
 | AUTH-01 | v1.0 | Phase 06 | ✅ Complete |
 | AUTH-02 | v1.0 | Phase 06 | ✅ Complete |
 | AUTH-03 | v1.0 | Phase 06 | ✅ Complete |
 | AUTH-04 | v1.0 | Phase 06 | ✅ Complete |
+| STORY-01 | v1.1 | Phase 07 | ⏳ Pending |
+| STORY-02 | v1.1 | Phase 07 | ⏳ Pending |
+| STORY-03 | v1.1 | Phase 07 | ⏳ Pending |
+| STORY-04 | v1.1 | Phase 07 | ⏳ Pending |
+| FEAT-01 | v1.2 | Future | ⏳ Pending |
+| FEAT-02 | v1.2 | Future | ⏳ Pending |
+| FEAT-03 | v1.2 | Future | ⏳ Pending |
+| POLI-01 | v1.3 | Future | ⏳ Pending |
+| POLI-02 | v1.3 | Future | ⏳ Pending |
+| POLI-03 | v1.3 | Future | ⏳ Pending |
 
 ---
 

@@ -22,11 +22,12 @@ A simple, clean way to organize production assets for stories — Series → Sea
 - ✅ FEAT-01: Dark mode with theme toggle
 - ✅ FEAT-02: Props model for tracking physical objects
 
-### Active
+### Active (v1.1)
 
-- [ ] Keep the Django app running smoothly
-- [ ] Add new features as needed
-- [ ] Improve the user interface
+- [ ] STORY-01: Storyboard grid display at Episode level (sequences/shots as visual cards)
+- [ ] STORY-02: Storyboard grid display at Sequence level (shots as visual cards)
+- [ ] STORY-03: Optional image upload per shot
+- [ ] STORY-04: Image display in storyboard grids (when uploaded)
 
 ### Out of Scope
 
@@ -37,8 +38,8 @@ A simple, clean way to organize production assets for stories — Series → Sea
 
 - Existing Django 6.0.2 application
 - SQLite database
-- Already has: Series, Seasons, Episodes, Sequences, Shots, Characters, Wardrobe
-- Already has: Web UI, Admin interface, CSV import
+- Already has: Series, Seasons, Episodes, Sequences, Shots, Characters, Wardrobe, Props
+- Already has: Web UI, Admin interface, CSV import, Dark mode, User authentication
 
 ## Constraints
 
@@ -46,4 +47,4 @@ A simple, clean way to organize production assets for stories — Series → Sea
 
 ---
 
-*Last updated: 2025-03-11 after initialization*
+*Last updated: 2026-03-12 after v1.0 milestone*
