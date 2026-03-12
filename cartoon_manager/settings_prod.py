@@ -12,7 +12,19 @@ DEBUG = False
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # Railway domains and custom domains
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '.railway.app').split(',')
+# Support both specific domain and wildcards for Railway subdomains
+_allowed_hosts_env = os.environ.get('ALLOWED_HOSTS', '')
+if _allowed_hosts_env:
+    ALLOWED_HOSTS = [host.strip() for host in _allowed_hosts_env.split(',') if host.strip()]
+else:
+    # Default Railway hosts including up.railway.app pattern
+    ALLOWED_HOSTS = [
+        'memoon-production.up.railway.app',
+        '.up.railway.app',
+        '.railway.app',
+        'localhost',
+        '127.0.0.1',
+    ]
 
 # Database configuration using Railway's PostgreSQL
 # dj_database_url will parse DATABASE_URL environment variable
