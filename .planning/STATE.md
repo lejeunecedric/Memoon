@@ -3,7 +3,7 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: - Initial Release ✅ Complete
 status: completed
-last_updated: "2026-03-12T07:09:32.876Z"
+last_updated: "2026-03-12T08:46:06.675Z"
 progress:
   total_phases: 1
   completed_phases: 1
@@ -70,6 +70,7 @@ See: .planning/PROJECT.md
 
 ### Pending Todos
 
+- **2026-03-12: Move dark mode toggle to settings menu** — Relocate the 🌓 theme toggle from header to a proper settings/preferences page
 - **2026-03-12: Add create new user option to login menu** — Self-registration feature with read-only default role for new users
 - **2026-03-12: Add default user and document in README** — Create default login credentials (user/password) and document in README for first-time users
 - **2026-03-12: Sort characters by series on All characters page** — UI enhancement to group/filter characters by their associated series
