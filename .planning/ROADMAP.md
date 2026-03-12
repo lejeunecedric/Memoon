@@ -49,7 +49,9 @@
 3. User can optionally upload an image file to any shot via the shot detail or edit interface
 4. When a shot has an uploaded image, that image displays within the shot card in both Episode and Sequence view grids
 
-**Plans:** TBD
+**Plans:** 1 plan
+
+- [ ] 07-01-PLAN.md — Add image field to Shot model + create storyboard grid views/templates
 
 ---
 
