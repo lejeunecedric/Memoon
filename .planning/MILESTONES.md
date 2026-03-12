@@ -56,10 +56,42 @@ Foundation release of Memoon with core features for managing animated series con
 
 - `.planning/ROADMAP.md` → `.planning/archive/v1.0/ROADMAP.md`
 - `.planning/v1.0-MILESTONE-AUDIT.md` → `.planning/archive/v1.0/v1.0-MILESTONE-AUDIT.md`
+- Phases 04-06 → `.planning/archive/v1.0/phases/`
 
 ### Git Tag
 
 `v1.0`
+
+---
+
+## v1.1 - Storyboard Display ✅ Complete
+
+**Status:** ✅ Complete  
+**Date:** 2026-03-12  
+**Progress:** 100%
+
+### Overview
+
+Visual storyboard viewing with grid layouts and image upload capability.
+
+### Phases Included
+
+- **Phase 07:** Storyboard Display - Grid views + image upload for Episode/Sequence storyboards
+
+### Accomplishments
+
+- Episode storyboard view showing sequences as visual cards
+- Sequence storyboard view showing shots as visual cards  
+- Optional image upload per shot
+- Image display in storyboard grids
+- Responsive grid layouts
+
+### Requirements Delivered
+
+- ✅ STORY-01: Storyboard grid display at Episode level
+- ✅ STORY-02: Storyboard grid display at Sequence level
+- ✅ STORY-03: Optional image upload per shot
+- ✅ STORY-04: Image display in storyboard grids
 
 ---
 
