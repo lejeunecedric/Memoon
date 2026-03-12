@@ -63,4 +63,29 @@ Foundation release of Memoon with core features for managing animated series con
 
 ---
 
+## v1.2 - Enhanced Features (In Progress)
+
+**Status:** 🔄 In Progress  
+**Started:** 2026-03-12  
+**Goal:** Add features to improve usability
+
+### Overview
+
+Building on the foundation of v1.0 and v1.1, this milestone adds search, filtering, export capabilities, and improves user onboarding.
+
+### Phases Included
+
+- **Phase 08:** Search functionality across all models (Series, Episodes, Sequences, Shots, Characters, Props)
+- **Phase 09:** Filtering and sorting improvements (including character sorting by series)
+- **Phase 10:** Export to JSON and CSV formats
+- **Phase 11:** User onboarding and registration (default user, self-registration)
+
+### Requirements
+
+- FEAT-01: Search functionality across all models
+- FEAT-02: Better filtering and sorting
+- FEAT-03: Export to common formats (JSON, CSV)
+
+---
+
 *Last updated: 2026-03-12*
