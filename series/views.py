@@ -361,3 +361,156 @@ def logout_view(request):
     logout(request)
     messages.success(request, "You have been logged out.")
     return redirect("series:series_list")
+
+
+def search(request):
+    """Handle global search across all models."""
+    query = request.GET.get("q", "").strip()
+    results = []
+    total_count = 0
+
+    if len(query) >= 2:
+        from django.db.models import Q
+
+        # Search Series
+        series_results = Series.objects.filter(
+            Q(title__icontains=query) | Q(description__icontains=query)
+        )
+        for series in series_results:
+            relevance = 100 if query.lower() in series.title.lower() else 50
+            results.append(
+                {
+                    "type": "Series",
+                    "title": series.title,
+                    "description": series.description[:150] if series.description else "",
+                    "url": reverse_lazy("series:series_detail", kwargs={"pk": series.pk}),
+                    "relevance": relevance,
+                }
+            )
+
+        # Search Seasons (via series context)
+        season_results = Season.objects.filter(
+            Q(series__title__icontains=query) | Q(series__description__icontains=query)
+        )
+        for season in season_results:
+            relevance = 50
+            results.append(
+                {
+                    "type": "Season",
+                    "title": f"{season.series.title} - Season {season.number}",
+                    "description": "",
+                    "url": reverse_lazy("series:season_detail", kwargs={"pk": season.pk}),
+                    "relevance": relevance,
+                }
+            )
+
+        # Search Episodes
+        episode_results = Episode.objects.filter(
+            Q(title__icontains=query) | Q(description__icontains=query)
+        )
+        for episode in episode_results:
+            relevance = 100 if query.lower() in episode.title.lower() else 50
+            results.append(
+                {
+                    "type": "Episode",
+                    "title": f"Episode {episode.number}: {episode.title}",
+                    "description": episode.description[:150] if episode.description else "",
+                    "url": reverse_lazy("series:episode_detail", kwargs={"pk": episode.pk}),
+                    "relevance": relevance,
+                }
+            )
+
+        # Search Sequences
+        sequence_results = Sequence.objects.filter(
+            Q(title__icontains=query) | Q(description__icontains=query)
+        )
+        for sequence in sequence_results:
+            relevance = 100 if query.lower() in sequence.title.lower() else 50
+            results.append(
+                {
+                    "type": "Sequence",
+                    "title": f"Sequence {sequence.number}: {sequence.title}",
+                    "description": sequence.description[:150] if sequence.description else "",
+                    "url": reverse_lazy("series:sequence_detail", kwargs={"pk": sequence.pk}),
+                    "relevance": relevance,
+                }
+            )
+
+        # Search Shots
+        shot_results = Shot.objects.filter(
+            Q(script__icontains=query)
+            | Q(background__icontains=query)
+            | Q(camera_angle__icontains=query)
+            | Q(camera_movement__icontains=query)
+            | Q(notes__icontains=query)
+        )
+        for shot in shot_results:
+            relevance = 50
+            results.append(
+                {
+                    "type": "Shot",
+                    "title": f"Shot {shot.number}",
+                    "description": shot.script[:150] if shot.script else "",
+                    "url": reverse_lazy("series:shot_detail", kwargs={"pk": shot.pk}),
+                    "relevance": relevance,
+                }
+            )
+
+        # Search Characters
+        character_results = Character.objects.filter(
+            Q(name__icontains=query) | Q(description__icontains=query)
+        )
+        for character in character_results:
+            relevance = 100 if query.lower() in character.name.lower() else 50
+            results.append(
+                {
+                    "type": "Character",
+                    "title": character.name,
+                    "description": character.description[:150] if character.description else "",
+                    "url": reverse_lazy("series:character_detail", kwargs={"pk": character.pk}),
+                    "relevance": relevance,
+                }
+            )
+
+        # Search Props
+        prop_results = Prop.objects.filter(
+            Q(name__icontains=query) | Q(description__icontains=query)
+        )
+        for prop in prop_results:
+            relevance = 100 if query.lower() in prop.name.lower() else 50
+            results.append(
+                {
+                    "type": "Prop",
+                    "title": prop.name,
+                    "description": prop.description[:150] if prop.description else "",
+                    "url": f"/admin/series/prop/{prop.pk}/change/",
+                    "relevance": relevance,
+                }
+            )
+
+        # Search Wardrobe Items
+        wardrobe_results = WardrobeItem.objects.filter(
+            Q(name__icontains=query) | Q(description__icontains=query)
+        )
+        for item in wardrobe_results:
+            relevance = 100 if query.lower() in item.name.lower() else 50
+            results.append(
+                {
+                    "type": "Wardrobe Item",
+                    "title": item.name,
+                    "description": item.description[:150] if item.description else "",
+                    "url": reverse_lazy("series:character_detail", kwargs={"pk": item.character.pk}),
+                    "relevance": relevance,
+                }
+            )
+
+        # Sort by relevance (descending) and limit to top 50
+        results.sort(key=lambda x: x["relevance"], reverse=True)
+        total_count = len(results)
+        results = results[:50]
+
+    return render(
+        request,
+        "series/search_results.html",
+        {"query": query, "results": results, "total_count": total_count},
+    )
