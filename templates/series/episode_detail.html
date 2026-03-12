@@ -14,6 +14,7 @@
     <div style="display: flex; justify-content: space-between; align-items: center;">
         <h2>{{ episode }}</h2>
         <div>
+            <a href="{% url 'series:episode_storyboard' episode.pk %}" class="btn" style="background-color: #8e44ad;">Storyboard View</a>
             <a href="{% url 'series:episode_otio_export' episode.pk %}" class="btn" target="_blank">Export OTIO</a>
         </div>
     </div>

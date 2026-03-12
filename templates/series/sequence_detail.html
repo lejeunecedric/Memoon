@@ -19,7 +19,10 @@
 <div class="card">
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
         <h2>Shots ({{ shots|length }})</h2>
-        <a href="{% url 'series:shot_add' sequence.pk %}" class="btn">+ Add Shot</a>
+        <div>
+            <a href="{% url 'series:sequence_storyboard' sequence.pk %}" class="btn" style="background-color: #8e44ad;">Storyboard View</a>
+            <a href="{% url 'series:shot_add' sequence.pk %}" class="btn">+ Add Shot</a>
+        </div>
     </div>
     
     <table>
