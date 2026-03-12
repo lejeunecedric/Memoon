@@ -146,7 +146,7 @@ See `.planning/milestones/v1.1-storyboard-display.md`
 **Goal:** Users can search across Series, Seasons, Episodes, Sequences, Shots, Characters, Props, and Wardrobe Items with relevant results displayed.
 **Requirements**: FEAT-01
 **Depends on:** Phase 7
-**Plans:** 0 plans
+**Plans:** 1 plan
 **Success Criteria:**
 1. Global search box visible in navigation/header
 2. Search returns results from all major models (Series, Episodes, Sequences, Shots, Characters, Props)
@@ -154,7 +154,7 @@ See `.planning/milestones/v1.1-storyboard-display.md`
 4. Each result links to the appropriate detail page
 
 Plans:
-- [ ] TBD (run /gsd:plan-phase 8 to break down)
+- [ ] 08-01-PLAN.md — Global search across all models with search form, view, and results template
 
 ### Phase 9: Filtering and sorting improvements
 
