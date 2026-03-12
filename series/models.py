@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Series(models.Model):
@@ -158,3 +159,33 @@ class ShotCharacter(models.Model):
     def __str__(self):
         wardrobe_str = f" ({self.wardrobe.name})" if self.wardrobe else ""
         return f"{self.shot} - {self.character.name}{wardrobe_str}"
+
+
+class UserRole(models.TextChoices):
+    ADMIN = "admin", "Admin"
+    POWER_USER = "power_user", "Power User"
+    USER = "user", "User"
+
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
+    role = models.CharField(
+        max_length=20,
+        choices=UserRole.choices,
+        default=UserRole.USER,
+    )
+
+    class Meta:
+        verbose_name = "User Profile"
+        verbose_name_plural = "User Profiles"
+
+    def __str__(self):
+        return f"{self.user.username} ({self.get_role_display()})"
+
+    def has_role(self, role):
+        """Check if user has a specific role."""
+        return self.role == role
+
+    def is_admin(self):
+        """Check if user is an admin."""
+        return self.role == UserRole.ADMIN
