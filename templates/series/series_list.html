@@ -5,6 +5,28 @@
 {% block content %}
 <div class="card">
     <h2>🐱 All Series</h2>
+    
+    {% if show_sample_data_prompt %}
+    <div class="card" style="background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); color: white; margin-bottom: 20px;">
+        <h3>🎬 Welcome to Memoon!</h3>
+        <p>Your database is empty. Get started quickly by adding sample data with classic 1970s TV series:</p>
+        <ul style="margin: 10px 0; padding-left: 20px;">
+            <li>The Rockford Files</li>
+            <li>Starsky & Hutch</li>
+            <li>Kojak</li>
+        </ul>
+        <p style="margin-top: 15px;">
+            <strong>Run this command in your terminal:</strong><br>
+            <code style="background: rgba(0,0,0,0.3); padding: 8px 12px; border-radius: 4px; display: inline-block; margin-top: 5px;">
+                python manage.py populate_70s_series
+            </code>
+        </p>
+        <p style="margin-top: 10px; font-size: 0.9em;">
+            Or <a href="/admin/series/series/add/" style="color: white; text-decoration: underline;">add your own series manually</a>.
+        </p>
+    </div>
+    {% endif %}
+    
     <div class="grid">
         {% for series in series_list %}
         <div class="card">

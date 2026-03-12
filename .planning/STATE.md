@@ -70,9 +70,9 @@ See: .planning/PROJECT.md
 
 ### Pending Todos
 
-- ~~2025-03-11: Add props list in shot menu~~
-- ~~2025-03-12: Add sample data prompt to Memoon setup~~
-- ~~2026-03-12: Add user login/logout/settings menu on top right~~ ✓ Completed in Phase 6
+- ~~2025-03-11: Add props list in shot menu~~ ✓ Completed (Phase 5)
+- ~~2025-03-12: Add sample data prompt to Memoon setup~~ ✓ Completed
+- ~~2026-03-12: Add user login/logout/settings menu on top right~~ ✓ Completed (Phase 6)
 
 ---
 

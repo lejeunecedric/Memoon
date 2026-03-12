@@ -29,6 +29,13 @@ class SeriesListView(ListView):
     template_name = "series/series_list.html"
     context_object_name = "series_list"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # Check if database is empty (fresh setup)
+        if not Series.objects.exists():
+            context['show_sample_data_prompt'] = True
+        return context
+
 
 class SeriesDetailView(DetailView):
     model = Series
