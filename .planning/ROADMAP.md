@@ -83,10 +83,10 @@
 | POLI-01 | Phase 3 | Pending |
 | POLI-02 | Phase 3 | Pending |
 | POLI-03 | Phase 3 | Pending |
-| AUTH-01 | Phase 6 | Pending |
-| AUTH-02 | Phase 6 | Pending |
-| AUTH-03 | Phase 6 | Pending |
-| AUTH-04 | Phase 6 | Pending |
+| AUTH-01 | Phase 6 | Complete |
+| AUTH-02 | Phase 6 | Complete |
+| AUTH-03 | Phase 6 | Complete |
+| AUTH-04 | Phase 6 | Complete |
 
 ### Phase 5: Add props model
 
@@ -100,22 +100,24 @@
 
 - [x] 05-01-PLAN.md — Add Prop model with admin and UI
 
-### Phase 6: Add user roles and permissions
+### Phase 6: Add user roles and permissions ✓ Complete
 
 **Goal:** Add user authentication, roles, and permissions with UI integration
 
+**Status:** Complete
+
 **Requirements:** 
-- AUTH-01: User authentication (login/logout) functionality
-- AUTH-02: User roles (Admin, Power User, User)
-- AUTH-03: Permission checks based on roles
-- AUTH-04: User menu in UI (from todo)
+- [x] AUTH-01: User authentication (login/logout) functionality
+- [x] AUTH-02: User roles (Admin, Power User, User)
+- [x] AUTH-03: Permission checks based on roles
+- [x] AUTH-04: User menu in UI (from todo)
 
 **Depends on:** Phase 5
 
-**Plans:** 1 plan
+**Plans:** 1 plan | 1 complete
 
 Plans:
-- [x] 06-01-PLAN.md — Add user authentication, roles, and permissions
+- [x] 06-01-PLAN.md — Add user authentication, roles, and permissions (Complete)
 
 ---
 
