@@ -8,8 +8,8 @@ import os
 from .settings import *
 
 # Security settings
-DEBUG = False
-SECRET_KEY = os.environ.get('SECRET_KEY')
+DEBUG = os.environ.get('DEBUG', 'False').lower() in ('true', '1', 'yes')
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-fallback-key-change-in-production')
 
 # Railway domains and custom domains
 # Support both specific domain and wildcards for Railway subdomains
